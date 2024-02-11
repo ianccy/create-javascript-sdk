@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "prepare": "husky"
+    "prepare": "husky && husky install"
   },
   "keywords": [],
   "author": "",
@@ -12,10 +12,12 @@
   "description": "",
   "lint-staged": {
     "*.{ts}": [
-      "eslint --fix",
+      "eslint --cache --fix",
       "prettier --write",
       "npm test"
-    ]
+    ],
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.9",
@@ -28,11 +30,14 @@
     "@typescript-eslint/parser": "^6.21.0",
     "babel-jest": "^29.7.0",
     "eslint": "^8.56.0",
+    "husky": "^9.0.10",
+    "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.2",
     "prettier": "^3.2.5",
     "rollup": "^4.10.0",
     "rollup-plugin-typescript2": "^0.36.0",
     "ts-jest": "^29.1.2",
+    "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
   }
 }
