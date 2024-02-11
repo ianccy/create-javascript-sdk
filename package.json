@@ -6,7 +6,8 @@
     "test": "jest",
     "build-dev": "rollup -c -w",
     "build": "rollup -c --prod",
-    "prepare": "husky && husky install"
+    "prepare": "husky && husky install",
+    "release": "npm publish"
   },
   "keywords": [],
   "author": "",

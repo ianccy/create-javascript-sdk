@@ -1,0 +1,30 @@
+name: release the javascript sdk
+
+on:
+  release:
+    types: [created]
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - run: npm install
+      - run: npm run test
+      - run: npm run build
+      - name: upload file to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_name: ianccy/sample-javascript-sdk
+          # A personal access token for the GitHub repository in which the release will be created and edited.
+          # It is recommended to create the access token with the following scopes: `repo, user, admin:repo_hook`.
+          repo_token: ${{ secrets.GH_TOKEN }}
+          file: dist/*
+          asset_name: index.js
+          tag: ${{ github.ref }}
+          overwrite: true
+          body: "This is my release text"
