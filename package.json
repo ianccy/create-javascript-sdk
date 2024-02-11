@@ -7,7 +7,8 @@
     "build-dev": "rollup -c -w",
     "build": "rollup -c --prod",
     "prepare": "husky && husky install",
-    "release": "npm publish"
+    "release": "npm publish",
+    "deploy:ci": "gh-pages -d dist -r https://$GH_TOKEN@github.com/ianccy/sample-javascript-sdk.git"
   },
   "keywords": [],
   "author": "",
@@ -37,6 +38,7 @@
     "@typescript-eslint/parser": "^6.21.0",
     "babel-jest": "^29.7.0",
     "eslint": "^8.56.0",
+    "gh-pages": "^6.1.1",
     "husky": "^9.0.10",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.2",
