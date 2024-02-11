@@ -1,0 +1,38 @@
+{
+  "name": "create-javascript-sdk",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "lint-staged": {
+    "*.{ts}": [
+      "eslint --fix",
+      "prettier --write",
+      "npm test"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "@babel/preset-typescript": "^7.23.3",
+    "@jest/globals": "^29.7.0",
+    "@types/jest": "^29.5.12",
+    "@typescript-eslint/eslint-plugin": "^6.21.0",
+    "@typescript-eslint/parser": "^6.21.0",
+    "babel-jest": "^29.7.0",
+    "eslint": "^8.56.0",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "rollup": "^4.10.0",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "ts-jest": "^29.1.2",
+    "typescript": "^5.3.3"
+  }
+}
