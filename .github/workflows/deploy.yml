@@ -8,16 +8,23 @@ env:
   GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
-  publish-npm:
+  release-code:
     runs-on: ubuntu-latest
     steps:
+      - name: GitHub Config
+        run: |
+          git config --global user.email "chu2815@hotmail.com"
+          git config --global user.name "ianccy"
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-      - run: npm install
-      - run: npm run test
-      - run: npm run build
-      - name: Deploy
+      - name: Install dependencies
+        run: npm install
+      - name: Unit-Test
+        run: npm run test
+      - name: Build Code
+        run: npm run build
+      - name: Upload to GitHub Repository
         run: npm run deploy:ci
