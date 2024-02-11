@@ -7,11 +7,17 @@
     "build-dev": "rollup -c -w",
     "build": "rollup -c --prod",
     "prepare": "husky && husky install",
-    "release": "npm publish",
     "deploy:ci": "gh-pages -d dist -r https://$GH_TOKEN@github.com/ianccy/sample-javascript-sdk.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "rollup",
+    "typescript",
+    "jest",
+    "eslint",
+    "prettier",
+    "gh-pages"
+  ],
+  "author": "ianchu",
   "license": "ISC",
   "description": "",
   "lint-staged": {
